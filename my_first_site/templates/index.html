@@ -1,0 +1,229 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Your custom styles (optional) -->
+    <!-- Styles (Less) -->
+    <!-- Scripts -->
+    <link rel="stylesheet" href="{% static 'css/style.less' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% block title %}
+    <title>Домашняя страница</title>
+    {% endblock %}
+</head>
+
+<body>
+    <div class="main">
+        {% block line %}
+        <div class="main_line">
+            <div class="container">
+                <div class="header">
+                    <div class="logo_wrap">
+                        <div class="logo_img">
+                            <div class="logo_inside">
+                                <img src="../static/css/images/1.jpg" width="124" height="124" alt="лого">
+                            </div>
+                        </div>
+                        <div class="logo_text">
+                            <a href="{% url 'index' %}">Компьютерный супермаркет</a>
+                        </div>
+                    </div>
+                    <div class="header_inside">
+                        <div class="contacts">
+                            <div class="contacts_inside">
+                                <div class="address">
+                                    <span>г. Луганск, Ул. Советская, 52</span>
+                                </div>
+                                <div class="phone">
+                                    <span>Тел: (072)-138-66-50</span>
+                                    <span>(066)-697-55-79</span>
+                                    <span>(050)-323-29-60</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+        {% block head %}
+        <div class="container">
+            <div class="header_bottom">
+                <div class="search_form">
+                    <form action="{% url 'search_result' %}" method="get">
+                        <div class="form-row">
+                            <input type="text" name="q" class="form-control" placeholder="Введите запрос">
+                        </div>
+                        <button type="submit" class="btn btn-light">Поиск</button>
+                    </form>
+                </div>
+                {% if user.is_superuser %}
+                <a href="{% url 'dollar_view' %}">Курс</a>
+                <a href="{% url 'new_model' %}">Новая модель</a>
+                {% endif %}
+                <div class="users">
+                    {% if user.is_authenticated %}
+                    <div class="auth">
+                        <div>
+                            <a href="{% url 'profile' %}">{{ user.username }}</a>
+                        </div>
+                        <div>
+                            {% if order_count|length > 0 %}
+                            <a href="{% url 'cart_detail' %}">Корзина: {{order_count|length}}</a>
+                            {% else %}
+                            <p>Корзина пуста</p>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <a href="{% url 'logout' %}">Выйти</a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="auth">
+                        <div>
+                            <a href="{% url 'register' %}">Регистрация</a>
+                        </div>
+                        <div>
+                            <a href="{% url 'login' %}">Войти</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="status">
+                <span>Сайт находится на стадии разработки</span>
+            </div>
+            <div class="content">
+                <div class="left_block">
+                    <div class="left_inside">
+                        <div class="left_inside_title">
+                            <span>Каталог товаров</span>
+                        </div>
+                        <div class="left_inside_list">
+                            <ul>
+                                <a href="{% url 'note' %}">Ноутбуки</a>
+                                <a href="">Мониторы</a>
+                                <a href="">Сетевое оборудование</a>
+                                <a href="">Планшеты</a>
+                                <a href="">Колонки</a>
+                                <a href="">Клавиатуры</a>
+                                <a href="">Картриджи</a>
+                                <a href="">Принтеры, МФУ, сканеры</a>
+                                <a href="">Комп. комплектующие</a>
+                                <a href="">Аксессуары к ноутбукам</a>
+                                <a href="">Аксессуары для ТВ</a>
+                                <a href="">Видеокарты</a>
+                                <a href="">Бумага</a>
+                                <a href="">Внешние накопители и карты</a>
+                                <a href="{% url 'headphones' %}">Гарнитуры</a>
+                                <a href="">Джойстики</a>
+                                <a href="">Диски и батарейки</a>
+                                <a href="">ИБП</a>
+                                <a href="">Корпуса и БП</a>
+                                <a href="">Чернила, тонеры</a>
+                                <a href="">Чехлы</a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
+                {% block main %}
+                <div class="right_block">
+                    <div class='category_card'>
+                        <a href="{% url 'note' %}">
+                            <div class="category_name">Ноутбуки</div>
+                            <img src="../static/css/images/zenbook.png" hspace="14" , vspace="30" , height="150" ,
+                                width="210" alt="Ноутбук">
+                        </a>
+                    </div>
+                    <div class='category_card'>
+                        <a href="{% url 'index' %}">
+                            <div class="category_name">Системные блоки</div>
+                            <img src="../static/css/images/block.jpg" hspace="25" vspace="20" height="170" width="190"
+                                alt="Системные блоки">
+                        </a>
+                    </div>
+                    <div class='category_card'>
+                        <a href="{% url 'index' %}">
+                            <div class="category_name">Мониторы</div>
+                            <img src="../static/css/images/монитор_2.png" hspace="14" vspace="30" height="155"
+                                width="210" alt="Монитор">
+                        </a>
+                    </div>
+                    <div class='category_card'>
+                        <a href="{% url 'index' %}">
+                            <div class="category_name">Принтеры и МФУ</div>
+                            <img src="../static/css/images/printer_2.png" hspace="14" vspace="12" height="190"
+                                width="210" alt="Принтеры">
+                        </a>
+                    </div>
+                    <div class='category_card'>
+                        <a href="{% url 'index' %}">
+                            <div class="category_name">Колонки</div>
+                            <img src="../static/css/images/sound.png" hspace="16" vspace="30" height="155" width="200"
+                                alt="Колонки">
+                        </a>
+                    </div>
+                    <div class='category_card'>
+                        <a href="{% url 'index' %}">
+                            <div class="category_name">Наушники</div>
+                            <img src="../static/css/images/наушники.png" hspace="40" vspace="30" height="155"
+                                width="155" alt="Наушники">
+                        </a>
+                    </div>
+                    <div class='category_card'>
+                        <a href="{% url 'index' %}">
+                            <div class="category_name">Сетевое оборудование</div>
+                            <img src="../static/css/images/роутер_3.png" hspace="12" vspace="22" height="170"
+                                width="210" alt="Сетевое оборудование">
+                        </a>
+                    </div>
+                    <div class='category_card'>
+                        <a href="{% url 'index' %}">
+                            <div class="category_name">Клавиатуры</div>
+                            <img src="../static/css/images/pad.png" hspace="6" vspace="60" height="103" width="225"
+                                alt="Клавиатуры">
+                        </a>
+                    </div>
+                    <div class='category_card'>
+                        <a href="{% url 'index' %}">
+                            <div class="category_name">Мышки</div>
+                            <img src="../static/css/images/мышь_2.jpg" hspace="33" vspace="18" height="175" width="170"
+                                alt="Мышки">
+                        </a>
+                    </div>
+                </div>
+                {% endblock %}
+                {% block footer %}
+                <div class="my_pagination">
+                    {% for i in pagin.paginator.page_range %}
+                    <div class="current">
+                        <a class="active" href="?page={{i}}">{{i}}</a>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endblock %}
+            </div>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        </div>
+    </div>
+</body>
+
+</html>

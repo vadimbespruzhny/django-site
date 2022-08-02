@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+<title>Создание заказа</title>
+{% endblock %}
+
+{% block main %}
+<div class="order_create">
+    <table class="my_table">
+        <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Название товара</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Количество</th>
+                <th scope="col">Сумма</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in order_obj.items.all %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}.</th>
+                <td>{{ o }}</td>
+                <td>{{ o.item.price }}</td>
+                <td>{{ o.quantity }}</td>
+                <td>{{ o.get_total_price }}</td>
+                <td>
+                    <a href="{% url 'cart_remove_all' o.item.pk %}"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4"><b>Общая сумма заказа:</b></td>
+                <td><b>{{ order_obj.total_order_price }}руб.</b></td>  
+            </tr>
+        </tbody>
+    </table>
+    <div class="order_form">
+        <span>Заполните форму</span>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form }}
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Оформить заказ</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+<title>Спасибо за заказ</title>
+{% endblock %}
+
+{% block main %}
+
+<div class="order_created">
+    <div class="order_created_inside">
+        <h3>Спасибо за заказ!</h3>
+        <p>Номер вашего заказа: № {{ new_order }}</p>
+        <p>Информация о заказе отправлена на вашу почту</p>
+        {{quantity}}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

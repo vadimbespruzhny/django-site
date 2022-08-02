@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+<title>Добавление нового производителя</title>
+{% endblock %}
+
+{% block content%}
+<h2>Добавление нового производителя</h2>
+<div class="add">
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Сохранить">
+    </form>
+</div>
+{% endblock %}

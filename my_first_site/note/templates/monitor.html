@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Ноутбуки</title>
+{% endblock %}
+
+<body>
+    {% block main %}
+    <div class="right_block">
+        {% for monitor in pagin.notes.object_list %}
+        <div class="product_card">
+            <a href="{{ monitor.get_absolute_url }}">
+                <div class="product_body">
+                    {% if monitor.image %}
+                    <img src="{{ monitor.image.url }}">
+                    {% endif %}
+                </div>
+                <div class="product_name">
+                    {{ monitor }}
+                </div>
+            </a>
+            <div class="product_price_block">
+                <div class="price">
+                    {{ monitor.price }} руб.
+                </div>
+                <a href="{% url 'cart_add_product' monitor.id %}">
+                    <div class="cart_add">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block main %}
+<ul>
+    {% if object_list %}
+        {% for product in object_list %}
+            <li>
+                <a href="{{ product.get_absolute_url }}">{{ product.brand }} {{ product.name }}</a>
+            </li>
+        {% endfor %}
+    {% else %}
+    <p>ничего не найдено</p>
+    {% endif %}
+</ul>
+{% endblock %}

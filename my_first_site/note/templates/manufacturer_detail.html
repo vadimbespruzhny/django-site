@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Список товаров</title>
+{% endblock %}
+
+<body>
+    {% block content %}
+    <p>
+        <h3>Ноутбуки</h3>
+    </p>
+    <div class="manufacturer">
+        <!-- здесь manufacturer это переменная, которую мы получаемя из
+        get_object_or_404(Note_Manufacturer, pk=pk) -->
+        {% for product in manufacturer.product_list.all %}
+        <div class="manufacturer_item">
+            <p>{{ product.get_category_display }}</p>
+            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>

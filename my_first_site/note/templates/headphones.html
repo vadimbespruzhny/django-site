@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Ноутбуки</title>
+{% endblock %}
+
+<body>
+    {% block main %}
+    <div class="right_block">
+        {% for i in pagin.items.object_list %}
+        <div class="product_card">
+            <a href="{{ i.get_absolute_url }}">
+                <div class="product_body">
+                    {% if i.image %}
+                    <img src="{{ is.image.url }}">
+                    {% endif %}
+                </div>
+                <div class="product_name">
+                    {{ i }}
+                </div>
+            </a>
+            <div class="product_price_block">
+                <div class="price">
+                    {{ i.price }} руб.
+                </div>
+                <a href="{% url 'cart_add_product' i.id %}">
+                    <div class="cart_add">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
+
+</html>

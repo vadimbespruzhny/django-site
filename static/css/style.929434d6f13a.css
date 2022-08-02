@@ -1,0 +1,551 @@
+@font-face {
+  font-family: 'Montserrat-ExtraBold';
+  src: url("fonts/Montserrat-ExtraBold.19ba7aa52a78.ttf");
+}
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url("fonts/Montserrat-Medium.c8b6e083af3f.ttf");
+}
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url("fonts/Montserrat-Light.409c7f79a42e.ttf");
+}
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url("fonts/Montserrat-SemiBold.c641dbee1d75.ttf");
+}
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url("fonts/Montserrat-Bold.ade91f473255.ttf");
+}
+@font-face {
+  font-family: 'Martel-ExtraBold';
+  src: url("fonts/Martel-ExtraBold.2e2fbe46c50a.ttf");
+}
+@font-face {
+  font-family: 'Martel-Light';
+  src: url("fonts/Martel-Light.9a335ceae135.ttf");
+}
+@font-face {
+  font-family: 'Manrope-Medium';
+  src: url("fonts/Manrope-Medium.c3d6021324dc.ttf");
+}
+@font-face {
+  font-family: 'Manrope-Regular';
+  src: url("fonts/Manrope-Regular.4483dc803501.ttf");
+}
+@font-face {
+  font-family: 'Manrope-Light';
+  src: url("fonts/Manrope-Light.83fb740a8df6.ttf");
+}
+@font-face {
+  font-family: 'NotoSerifJP-Black';
+  src: url("fonts/NotoSerifJP-Black.3333da3d0693.otf");
+}
+@font-face {
+  font-family: 'NotoSerifJP-Black';
+  src: url("fonts/NotoSerifJP-Black.3333da3d0693.otf");
+}
+body {
+  margin: 0 auto;
+}
+.login {
+  width: 500px;
+  margin: auto;
+}
+.login .login_inside {
+  margin-top: 50px;
+}
+.dollar_form {
+  width: 250px;
+  float: left;
+}
+.dollar_list_wrap {
+  display: flex;
+}
+.dollar_list_wrap .dollar_list {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-left: 10px;
+}
+.main_line {
+  background: #0272e2;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+@media (min-width: 767px) and (max-width: 991px) {
+  .header {
+    width: 690px;
+  }
+}
+@media (min-width: 0) and (max-width: 576px) {
+  .header {
+    justify-content: space-between;
+  }
+}
+.logo_wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  width: 470px;
+}
+@media (min-width: 767px) and (max-width: 991px) {
+  .logo_wrap {
+    width: 380px;
+    height: 120px;
+    justify-content: flex-start;
+  }
+}
+.logo_wrap .logo_inside {
+  border: 1px solid white;
+  border-radius: 6px;
+  background: white;
+  width: 130px;
+  height: 130px;
+}
+.logo_wrap .logo_inside img {
+  margin: 2.5px 1px 1px 2px ;
+}
+@media (min-width: 767px) and (max-width: 991px) {
+  .logo_wrap .logo_inside {
+    width: 100px;
+    height: 100px;
+  }
+  .logo_wrap .logo_inside img {
+    width: 94px;
+    height: 94px;
+    margin: 2.5px 2px 2px 2px;
+  }
+}
+.logo_wrap .logo_text {
+  display: flex;
+  width: 300px;
+  font-size: 35px;
+  font-family: 'Montserrat-Bold';
+  align-items: center;
+}
+.logo_wrap .logo_text a {
+  color: white;
+  text-decoration: none;
+}
+@media (min-width: 767px) and (max-width: 991px) {
+  .logo_wrap .logo_text {
+    margin-left: 10px;
+    width: 240px;
+    font-size: 30px;
+    line-height: 37px;
+    font-weight: 500;
+  }
+}
+.header_inside {
+  width: 465px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+@media (min-width: 767px) and (max-width: 991px) {
+  .header_inside .contacts {
+    margin-bottom: 20px;
+  }
+}
+.header_inside .contacts .contacts_inside {
+  text-align: right;
+  font-size: 22px;
+  font-weight: 400;
+  color: white;
+}
+@media (min-width: 767px) and (max-width: 991px) {
+  .header_inside .contacts .contacts_inside {
+    font-size: 17px;
+  }
+}
+.header_bottom {
+  padding: 10px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  border-bottom: 1px solid gainsboro;
+}
+.header_bottom .search_form {
+  max-width: 450px;
+}
+.header_bottom .search_form form {
+  display: flex;
+  margin-left: 4px;
+}
+.header_bottom .search_form form .form-row {
+  width: 360px;
+}
+.header_bottom .search_form form button {
+  margin-left: 10px;
+}
+@media (min-width: 767px) and (max-width: 991px) {
+  .header_bottom .search_form {
+    width: 280px;
+    margin-bottom: 28px;
+  }
+}
+@media (min-width: 767px) and (max-width: 991px) {
+  .header_bottom .users {
+    width: 320px;
+    margin-bottom: 10px;
+  }
+}
+.header_bottom .users .auth {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 22px;
+  font-weight: 300;
+}
+.header_bottom .users .auth div {
+  margin-right: 10px;
+}
+.header_bottom .users .auth div:nth-last-child(-n+1) {
+  margin-right: 0px;
+}
+.header_bottom .users .auth a {
+  text-decoration: none;
+  border-bottom: #EA215A 1px solid;
+}
+@media (min-width: 767px) and (max-width: 991px) {
+  .header_bottom .users .auth {
+    font-size: 17px;
+    font-weight: 400;
+    justify-content: flex-end;
+  }
+  .header_bottom .users .auth div {
+    margin-right: 10px;
+  }
+  .header_bottom .users .auth div:nth-child(3) {
+    margin-right: 0px;
+  }
+}
+.content {
+  margin-top: 25px;
+}
+.content .left_block {
+  width: 250px;
+  float: left;
+}
+.content .left_block .left_inside {
+  display: flex;
+  flex-direction: column;
+}
+.content .left_block .left_inside .left_inside_title {
+  text-align: center;
+  font-family: 'Manrope-Medium';
+  font-size: 25px;
+  border-bottom: #EA215A 2px solid;
+  padding: 0 10px 10px 10px;
+}
+.content .left_block .left_inside_list {
+  text-align: left;
+  font-weight: 300;
+  font-size: 18px;
+  margin: 15px;
+}
+.content .left_block ul {
+  padding: 0;
+}
+.content .left_block a {
+  display: block;
+  text-decoration: none;
+}
+.content .left_block a:hover {
+  border-bottom: #EA215A 1px solid;
+}
+.content .right_block {
+  max-width: 860px;
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: wrap;
+}
+.content .category_card {
+  width: 260px;
+  height: 260px;
+  margin: 0 0 25px 20px;
+  padding: 10px;
+  border: solid 1px gainsboro;
+}
+.content .category_card a {
+  text-decoration: none;
+}
+.content .category_card a:hover {
+  color: red;
+}
+.content .category_card .category_name {
+  text-align: center;
+  height: 35px;
+  font-family: 'Manrope-Medium';
+  font-size: 19px;
+  border-bottom: #EA215A 1px solid;
+}
+.product_card {
+  width: 240px;
+  height: 320px;
+  margin: 0 0 15px 15px;
+  padding: 15px 15px 0 15px;
+  box-sizing: border-box;
+  border: solid 1px gainsboro;
+  border-radius: 1px;
+}
+.product_card .product_body {
+  height: 180px;
+}
+.product_card .product_body img {
+  width: 210px;
+  height: 140px;
+}
+.product_card .product_name {
+  font-family: 'Manrope-Medium';
+  height: 50px;
+  font-size: 15px;
+}
+.product_card .product_price_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  margin-top: 10px;
+}
+.product_card .product_price_block .price {
+  font-family: 'Manrope-Medium';
+  font-size: 21px;
+}
+.product_card .product_price_block .cart_add {
+  width: 48px;
+  height: 48px;
+  border: 2px solid gainsboro;
+  border-radius: 30px;
+  font-size: 22px;
+  position: relative;
+}
+.product_card .product_price_block .cart_add:hover {
+  background: gainsboro;
+}
+.product_card .product_price_block .cart_add i {
+  color: grey;
+  position: absolute;
+  left: 8px;
+  top: 12px;
+}
+.product_card a:hover {
+  text-decoration: none;
+  color: red;
+}
+.my_pagination {
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid gainsboro;
+  border-bottom: 1px solid gainsboro;
+  margin-bottom: 30px;
+}
+.my_pagination .current {
+  width: 40px;
+  text-align: center;
+  font-family: 'Montserrat-Medium';
+  font-size: 20px;
+}
+.my_pagination .current a {
+  text-decoration: none;
+}
+.my_pagination .current a:hover {
+  font-size: 25px;
+  color: red;
+}
+.product_item_wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 750px;
+  float: right;
+}
+.product_item_wrap .product_item_name {
+  font-family: 'Manrope-Medium';
+  font-size: 28px;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+.product_item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.product_item .product_item_img {
+  margin: 10px 20px 0 20px;
+}
+.product_item .product_item_img img {
+  height: 300px;
+}
+.product_item .product_item_card {
+  background: #f7f7f7;
+  border-radius: 5px;
+  width: 260px;
+  padding: 0 10px 10px 10px;
+}
+.product_item .product_item_card a {
+  text-decoration: none;
+  color: white;
+}
+.product_item .product_item_card .card_desc {
+  font-size: 15px;
+  margin-top: 10px;
+}
+.product_item .product_item_card .card_desc ul {
+  padding-left: 17px;
+}
+.product_item .product_item_card .card_desc h5 {
+  margin-left: 22px;
+  font-family: 'Montserrat-Medium';
+}
+.product_item .product_item_card .product_item_price {
+  height: 145px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product_item .product_item_card .product_item_price .product_price {
+  font-family: 'Manrope-Medium';
+  font-size: 25px;
+  padding: 3px;
+  margin-bottom: 15px;
+  margin-top: 16px;
+}
+.product_item .product_item_card .cart_add_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  height: 50px;
+  width: 190px;
+  background: #0272e2;
+  border: 1px solid gainsboro;
+  border-radius: 9px;
+  border-width: 4px;
+}
+.product_item .product_item_card .cart_add_block:hover {
+  background: #3939ce;
+}
+.product_item .product_item_card .cart_add_block:active {
+  background: blue;
+}
+.product_item .product_item_card .cart_add_block .cart_add_button {
+  font-size: 16px;
+  font-weight: 500;
+}
+.cart_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.cart_item_wrap {
+  padding: 0 10px 10px 10px;
+  margin-left: 37px;
+}
+.cart_item_wrap .cart_name {
+  font-family: 'Manrope-Medium';
+  font-size: 25px;
+  border-bottom: #EA215A 2px solid;
+  padding: 0 10px 10px 0;
+}
+.cart_item_wrap .cart_product_item {
+  display: flex;
+  margin-top: 25px;
+}
+.cart_item_wrap .cart_product_item .cart_item_name {
+  width: 300px;
+  font-family: 'Manrope-Light';
+}
+.cart_item_wrap .cart_product_item .cart_item_price {
+  width: 100px;
+  font-family: 'Manrope-Medium';
+  font-size: 18px;
+  margin-left: 40px;
+}
+.cart_item_wrap .cart_product_item .cart_item_price i {
+  font-size: 14px;
+}
+.cart_item_wrap .cart_product_item .cart_item_body {
+  display: flex;
+  justify-content: space-evenly;
+  height: 30px;
+  width: 80px;
+  line-height: 27px;
+  margin-left: 40px;
+}
+.cart_item_wrap .cart_product_item .cart_item_body i {
+  font-size: 20px;
+  color: gainsboro;
+}
+.cart_item_wrap .cart_product_item .cart_item_body i:hover {
+  color: gray;
+}
+.cart_item_wrap .cart_product_item .cart_item_body div {
+  font-size: 18px;
+  font-family: 'Manrope-Medium';
+}
+.cart_summary {
+  margin-left: 27px;
+  padding: 0 10px 10px 10px;
+}
+.cart_summary .cart_summary_info {
+  margin-top: 47px;
+  font-size: 18px;
+  font-family: 'Manrope-Medium';
+  border-top: #EA215A 2px solid;
+}
+.cart_summary .cart_summary_info a {
+  text-decoration: none;
+}
+.cart_summary .cart_summary_info .item_summary,
+.cart_summary .cart_summary_info .order_total {
+  margin-top: 25px;
+}
+.cart_summary .cart_summary_info .order_create_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d13333;
+  border-radius: 9px;
+  margin-top: 25px;
+  height: 50px;
+  color: white;
+}
+.cart_summary .cart_summary_info .order_create_button:hover {
+  background: #b91818;
+}
+.order_create {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  min-width: 750px;
+}
+.my_table {
+  padding: 10px;
+  border-collapse: unset;
+  font-size: 18px;
+}
+.order_form {
+  width: 400px;
+  padding: 10px;
+}
+.order_form span {
+  font-size: 25px;
+  font-family: 'Manrope-Medium';
+  border-bottom: #EA215A 2px solid;
+}
+.order_form form {
+  margin-top: 15px;
+}
+.order_created {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+.order_created .order_created_inside {
+  margin-left: 50px;
+}

@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Подробное описание товара</title>
+{% endblock %}
+
+<body>
+    {% block main %}
+    <div class="product_item_wrap">
+        <div class="product_item_name">
+            {{ product.name }}
+        </div>
+        <div class="product_item">
+            <div class="product_item_img">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="img">
+                {% else %}
+                <p></p>
+                {% endif %}
+            </div>
+            <div class="product_item_card">
+                <div class="product_item_price">
+                    <div class="product_price">{{ product.price }} руб.</div>
+                    {% if product.quantity %}
+                    <a href="{% url 'cart_add_product' product.pk %}">
+                        <div class="cart_add_block">
+                            <div class="cart_add_button">В корзину</div>
+                        </div>
+                    </a>
+                    {% else %}
+                    <div class="cart_add_block">
+                        <div class="cart_add_button">Скоро появится</div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="card_desc">
+                    <h5>Характеристики</h5>
+                    <ul>
+                        <li>процессор: {{ product.descrip.processor }}</li>
+                        <li>объем оперативной памяти: {{ product.descrip.memory }} </li>
+                        <li>накопитель: {{ product.descrip.hdd }} </li>
+                        <li>встроенная видеокарта: {{ product.descrip.videocard }}</li>
+                        <li>экран: {{ product.descrip.screen }} </li>
+                        <li>операционная система: {{product.descrip.os }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block footer %}
+    {% endblock %}
+</body>
+
+</html>

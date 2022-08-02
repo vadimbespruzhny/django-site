@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+<title>Корзина</title>
+{% endblock %}
+
+{% block main %}
+<div class="cart_wrap">
+    <div class="cart_item_wrap">
+        {% if user.is_authenticated %}
+        {% if order %}
+        <div class="cart_name">
+            <span>Корзина</span>
+        </div>
+        {% for o in order.items.all %}
+        <div class="cart_product_item">
+            <div class="cart_item_name">
+                <a href="{{ o.item.get_absolute_url }}">
+                    <span>{{ o }}</span>
+                </a>
+            </div>
+            <div class="cart_item_price">
+                <span>{{ o.item.price }} <i class="fas fa-ruble-sign"></i></span>
+            </div>
+            <div class="cart_item_body">
+                <div>
+                    <a href="{% url 'cart_remove' o.item.pk %}">
+                        <i class="fas fa-minus-circle"></i>
+                    </a>
+                </div>
+                <div>
+                    {{ o.quantity }}
+                </div>
+                <div>
+                    <a href="{% url 'cart_add_product' o.item.pk %}">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="cart_summary">
+        <div class="cart_summary_info">
+            <div class="item_summary">
+                <span>Товары: {{ order.items.count }}</span>
+            </div>
+            <div class="order_total">
+                <span>Сумма заказа: {{ order.total_order_price }} </span>
+            </div>
+            <a href="{% url 'order_create' %}">
+                <div class="order_create_button">Оформить заказ</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}
+{% block footer %}
+{% endblock %}

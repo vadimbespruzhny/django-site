@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+<title>Курс</title>
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="category_list">
+        <ul>
+            <a href="{% url 'note' %}">Ноутбуки</a>
+            <a href="">Мониторы</a>
+            <a href="">Сетевое оборудование</a>
+            <a href="">Планшеты</a>
+            <a href="">Колонки</a>
+            <a href="">Клавиатуры</a>
+            <a href="">Картриджи</a>
+            <a href="">Принтеры, МФУ, сканеры</a>
+            <a href="">Комп. комплектующие</a>
+            <a href="">Аксессуары к ноутбукам</a>
+            <a href="">Аксессуары для ТВ</a>
+            <a href="">Видеокарты</a>
+            <a href="">Бумага</a>
+            <a href="">Внешние накопители и карты</a>
+            <a href="">Гарнитуры</a>
+            <a href="">Джойстики</a>
+            <a href="">Диски и батарейки</a>
+            <a href="">ИБП</a>
+            <a href="">Корпуса и БП</a>
+            <a href="">Чернила, тонеры</a>
+            <a href="">Чехлы</a>
+        </ul>
+    </div>
+    <div class="dollar_form">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success btn-block">Сохранить</button>
+        </form>
+    </div>
+    <div class="dollar_list_wrap">
+        <div class="dollar_list">
+            <div class="category_name">
+                <a href="{% url 'note' %}">Ноутбуки</a>
+            </div>
+            <div class="category_item">
+                {% for p in all.note %}
+                <div>Товар: {{p.name}}</div>
+                <div>Цена: {{p.price}}</div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dollar_list">
+            <div class="category_name">
+                <a href="#">Сетевое оборудование</a>
+            </div>
+            <div class="category_item">
+                <!-- {% for p in all.note %}
+                        <div>Товар: {{p.name}}</div>
+                        <div>Цена: {{p.price}}</div>
+                        <hr>
+                {% endfor %} -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

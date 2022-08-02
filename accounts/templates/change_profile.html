@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Edit Profile</title>
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+<div class="login">
+    <div class="login_inside">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success btn-block">Сохранить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

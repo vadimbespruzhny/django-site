@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block content %}
+<form action="." method="post">
+    {{ email_form|crispy }}
+    {% csrf_token %}
+    <input type="submit" value="Отправить на почту">
+</form>
+{% endblock %}

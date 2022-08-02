@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+<title>Удаление товара</title>
+{% endblock %}
+
+{% block content %}
+<h2>Вы уверены что хотите удалить ноутбук {{ product.brand }} {{ product.name }}?</h2>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Удалить">
+</form>
+{% endblock %}

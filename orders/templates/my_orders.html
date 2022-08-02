@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+<title>Мои Заказы</title>
+{% endblock %}
+
+{% block content%}
+<div class="my_orders">
+    <h2>Мои Заказы</h2>
+    <p>
+        Номера заказа: №
+        {% for o in order %}
+        {{ o.id }}
+        {% endfor %}
+    </p>
+    {% for o in order_item %}
+    <div class="order_item">
+        Товар {{ o }}
+        <hr>
+        Количество: {{ o.quantity }}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+<title>Личный кабинет</title>
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+<div class="login">
+    <div class="login_inside">
+        <h3>Личный кабинет</h3>
+        <a href="{% url 'change_profile' %}">Редактирование профиля</a>
+        <a href="{% url 'password_change' %}">Смена пароля</a>
+        <a href=" {% url 'password_reset' %} ">Сброс пароля</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
